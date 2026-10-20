@@ -4,5 +4,11 @@
     "title": "Welcome to my blog",
     "date": "2026-10-19",
     "summary": "Why I started writing, and what you can expect here."
+  },
+  {
+    "slug": "healthcare-tips",
+    "title": "Healthcare tips",
+    "date": "2026-10-20",
+    "summary": "Practical healthcare tips for everyday life."
   }
 ]
