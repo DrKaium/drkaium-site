@@ -4,30 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog | Dr. Monirujjaman Kaium</title>
+<meta name="description" content="Healthcare tips and medical education by Dr. Monirujjaman Kaium.">
+<link rel="canonical" href="https://drkaium.com/blog/">
+<meta property="og:title" content="Blog">
+<meta property="og:description" content="Healthcare tips and medical education by Dr. Monirujjaman Kaium.">
+<meta property="og:url" content="https://drkaium.com/blog/">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="/blog/style.css">
 </head>
 <body>
 <div class="wrap">
   <div class="top"><a href="/">← Home</a><span>Dr. M. Kaium</span></div>
   <h1>Blog</h1>
-  <div id="list"><p class="date">Loading…</p></div>
+  <div class="item"><h2><a href="/blog/healthcare-tips/">Healthcare tips</a></h2>
+  <div class="date">20 October 2026</div><p>Practical healthcare tips for everyday life.</p></div>
+  <div class="item"><h2><a href="/blog/healthcare-tips-howtostayhealthy/">How to stay healthy</a></h2>
+  <div class="date">20 October 2026</div><p>Simple way to live healthy life.</p></div>
+  <div class="item"><h2><a href="/blog/welcome/">Welcome to my blog</a></h2>
+  <div class="date">19 October 2026</div><p>Why I started writing, and what you can expect here.</p></div>
   <p class="note">Medical information here is general education and is not a substitute for care from your own doctor.</p>
 </div>
-<script>
-fetch('/blog/posts.json').then(function(r){return r.json()}).then(function(posts){
-  posts.sort(function(a,b){return b.date.localeCompare(a.date)});
-  var box=document.getElementById('list');box.innerHTML='';
-  if(!posts.length){box.textContent='No posts yet.';return}
-  posts.forEach(function(p){
-    var d=document.createElement('div');d.className='item';
-    var h=document.createElement('h2'),a=document.createElement('a');
-    a.href='/blog/post.html?p='+encodeURIComponent(p.slug);a.textContent=p.title;h.appendChild(a);
-    var t=document.createElement('div');t.className='date';
-    t.textContent=new Date(p.date+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-    var s=document.createElement('p');s.textContent=p.summary||'';
-    d.appendChild(h);d.appendChild(t);d.appendChild(s);box.appendChild(d);
-  });
-}).catch(function(){document.getElementById('list').textContent='Could not load posts.'});
-</script>
 </body>
 </html>
