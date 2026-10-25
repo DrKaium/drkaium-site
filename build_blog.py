@@ -71,7 +71,8 @@ body = """  <div class="top"><a href="/">← Home</a><span>Dr. M. Kaium</span></
 with open("blog/index.html", "w", encoding="utf-8") as f:
     f.write(page("Blog", "Healthcare tips and medical education by " + NAME + ".", "/blog/", body).replace('og:type" content="article"', 'og:type" content="website"'))
 
-urls = [SITE + "/", SITE + "/blog/"] + [f"{SITE}/blog/{s}/" for s in built]
+pages = [d for d in sorted(os.listdir(".")) if os.path.isdir(d) and not d.startswith(".") and d != "blog" and os.path.exists(f"{d}/index.html")]
+urls = [SITE + "/", SITE + "/blog/"] + [f"{SITE}/blog/{s}/" for s in built] + [f"{SITE}/{d}/" for d in pages]
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls) + "\n</urlset>\n")
